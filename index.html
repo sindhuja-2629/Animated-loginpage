@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Login Page</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0%;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+
+        }
+
+        .card{
+            width: 450px;
+            background: white;
+            padding: 60px 30px 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            position: relative;
+        }
+
+        .top-icon{
+            position: absolute;
+            top: -45px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: #667eea;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 40px;
+            color: white;
+            border: 5px solid white;
+            box-shadow: 0 0 10px #667eea, 0 0 2px #667eea, 0 0 40px #667eea;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce{
+            0%, 100%{
+                transform: translateX(-50%) translateY(0);
+            }
+            50%{
+                transform: translateX(-50%) translateY(-12px);
+            }
+        }
+
+        h2{
+            text-align: center;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        label{
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type="email"], input[type="password"]{
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            outline: none;
+        }
+
+        input:focus{
+            border-color: #667eea;
+        }
+
+        .forgot{
+            text-align: right;
+            margin-bottom: 15px;
+        }
+
+        .forgot a{
+            text-decoration: none;
+            color: #667eea;
+        }
+
+        .remember{
+            margin-bottom: 20px;
+        }
+
+        button{
+            width: 100%;
+            padding: 12px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: .3s;
+        }
+
+        button:hover{
+            background: #5563d6;
+            transform: scale(1.03);
+        }
+
+        .signup{
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .signup a{
+            text-decoration: none;
+            color: #667eea;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="top-icon" id="lock">🔐</div>
+        <h2>Login</h2>
+        
+        <form >
+            <label>Email</label>
+            <input type="email" id="email" placeholder="Enter your Email">
+
+            <label for="pass">Password</label>
+            <input type="password" id="pass" placeholder="Enter your Password">
+
+            <div class="forgot">
+                <a href="#">Forgot Password?</a>
+            </div>
+
+            <div class="remember">
+                <input type="checkbox">Remember Me
+            </div>
+
+            <button type="button" onclick="login()">Login</button>
+
+            <div class="signup">
+                Don't have an account?
+                <a href="#">Sign Up</a>
+            </div>
+        </form>
+    </div>
+</body>
+<script>
+    function login(){
+        let email=document.getElementById("email").value;
+        let password=document.getElementById("pass").value;
+
+        if(email==="" || password===""){
+            alert("Please fill all fields");
+            return;
+        }
+
+        document.getElementById("lock").innerHTML="🔓";
+         alert("Login Successful 🎉");
+
+    }
+</script>
+</html>
